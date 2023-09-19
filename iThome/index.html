@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vue.js Beginning</title>
+</head>
+<body>
+  <!-- Vue實體 -->
+  <!-- <div id="app">
+    <h1>最受歡迎的貓咪品種</h1>
+    <ul>
+      <li v-for="breed in catBreeds">{{ breed }}</li>
+    </ul>
+  </div> -->
+  <!-- <div id="logIn">
+    <p v-if="isLoggedIn">hello, 會員！ 歡迎您再次登入 ^_^</p>
+    <p v-else>我們需要您先登錄喔~</p>
+  </div> -->
+  <div id="app">
+    <button v-on:click="popUpWindow">Try to click it!</button>
+  </div>
+  
+  
+  
+
+  <!-- 引入Vue.js library -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  <script>
+    // var app = new Vue({
+    //   el: '#app',
+    //   data: {
+    //     catBreeds: ['波斯貓', '英國短毛貓', '緬因貓', '豹貓','布偶貓']
+    //   }
+    // });
+    // var app = new Vue({
+    //   el: '#logIn',
+    //   data: {
+    //     isLoggedIn: false
+    //   }
+    // });
+    var app = new Vue({
+      el: '#app',
+      methods: {
+        popUpWindow: function () {
+          alert('Thank you for trying!');
+        }
+      }
+    });
+
+  </script>
+</body>
+</html>
