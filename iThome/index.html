@@ -4,48 +4,109 @@
   <title>Vue.js Beginning</title>
 </head>
 <body>
-  <!-- Vue實體 -->
-  <!-- <div id="app">
-    <h1>最受歡迎的貓咪品種</h1>
+  <h1>Welcome!</h1>
+  
+  <!-- <div id="pic">
+    <img v-bind:src="imageUrl" alt="cat">
+  </div> -->
+
+  <div id="favCat">
+    <h1>您喜歡的貓咪品種</h1>
+    <input v-model="userInput1" type="text" placeholder="你的No.1">
+    <input v-model="userInput2" type="text" placeholder="你的No.2">
+    <input v-model="userInput3" type="text" placeholder="你的No.3">
+    <ol>
+      <li v-if="userInput1">{{ userInput1 }}</li>
+      <li v-if="userInput2">{{ userInput2 }}</li>
+      <li v-if="userInput3">{{ userInput3 }}</li>
+    </ol>
+  </div>
+
+  <!-- <div id="favCat">
+    <h1>您喜歡的貓咪品種</h1>
+    <input v-model="userInput1" type="text" placeholder="你的No.1">
+    <input v-model="userInput2" type="text" placeholder="你的No.2">
+    <input v-model="userInput3" type="text" placeholder="你的No.3">
     <ul>
-      <li v-for="breed in catBreeds">{{ breed }}</li>
+      <li v-for="(breed, index) in catBreeds">{{ index + 1 }}. {{ breed }}</li>
     </ul>
   </div> -->
+  
+  
   <!-- <div id="logIn">
     <p v-if="isLoggedIn">hello, 會員！ 歡迎您再次登入 ^_^</p>
     <p v-else>我們需要您先登錄喔~</p>
   </div> -->
-  <div id="app">
-    <button v-on:click="popUpWindow">Try to click it!</button>
-  </div>
-  
-  
-  
 
-  <!-- 引入Vue.js library -->
+  <!-- <div id="pop">
+    <button v-on:click="popUpWindow">Try to click it!</button>
+  </div> -->
+
+  <!-- <div id="newCat">
+    <input v-model="userInput" type="text">
+    <p>你輸入的內容是：{{ userInput }}</p>
+  </div> -->
+  
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
   <script>
-    // var app = new Vue({
-    //   el: '#app',
+    // var app2 = new Vue({
+    //   el: '#pic',
     //   data: {
-    //     catBreeds: ['波斯貓', '英國短毛貓', '緬因貓', '豹貓','布偶貓']
+    //     imageUrl: 'https://i.guim.co.uk/img/media/26392d05302e02f7bf4eb143bb84c8097d09144b/446_167_3683_2210/master/3683.jpg?width=1200&quality=85&auto=format&fit=max&s=a52bbe202f57ac0f5ff7f47166906403'
     //   }
     // });
-    // var app = new Vue({
+    
+    var app = new Vue({
+      el: '#favCat',
+      data: {
+        userInput1: '', // user第一個input
+        userInput2: '', // user第二個input
+        userInput3: '' // user第三個input
+      }
+      // computed: {
+      //   catBreeds: function () {
+      //     // 建立一個用戶輸入的陣列
+      //     const breeds = [
+      //       this.userInput1,
+      //       this.userInput2,
+      //       this.userInput3
+      //     ];
+
+      //     // 去除空值（未輸入的部分）
+      //     const filteredBreeds = breeds.filter(breed => breed.trim() !== '');
+
+      //     // 過濾重複值
+      //     const uniqueBreeds = [...new Set(filteredBreeds)];
+
+      //     return uniqueBreeds;
+      //   }
+      // }
+    });
+
+
+    // var app3 = new Vue({
     //   el: '#logIn',
     //   data: {
     //     isLoggedIn: false
     //   }
     // });
-    var app = new Vue({
-      el: '#app',
-      methods: {
-        popUpWindow: function () {
-          alert('Thank you for trying!');
-        }
-      }
-    });
 
+    // var app4 = new Vue({
+    //   el: '#pop',
+    //   methods: {
+    //     popUpWindow: function () {
+    //       alert('Thank you for trying!');
+    //     }
+    //   }
+    // });
+
+    // var app5 = new Vue({
+    //   el: '#newCat',
+    //   data: {
+    //     userInput: '' // 用戶輸入的文本將存儲在這裡
+    //   }
+    // });
   </script>
 </body>
+
 </html>
