@@ -15,11 +15,21 @@
     <input v-model="userInput1" type="text" placeholder="你的No.1">
     <input v-model="userInput2" type="text" placeholder="你的No.2">
     <input v-model="userInput3" type="text" placeholder="你的No.3">
-    <ol>
-      <li v-if="userInput1">{{ userInput1 }}</li>
-      <li v-if="userInput2">{{ userInput2 }}</li>
-      <li v-if="userInput3">{{ userInput3 }}</li>
-    </ol>
+    <ul>
+      <li v-if="userInput1">你的NO.1 - {{ userInput1 }}</li>
+      <li v-else>你的NO.1 ?</li>
+      <li v-if="userInput2">你的NO.2 - {{ userInput2 }}</li>
+      <li v-else>你的NO.2 ?</li>
+      <li v-if="userInput3">你的NO.3 - {{ userInput3 }}</li>
+      <li v-else>你的NO.3 ?</li>
+    </ul>
+  </div>
+
+  <div id="userImage">
+    <h1>那麼可以幫我找一張你最喜歡的品種的貓咪照片嗎?</h1>
+    <input v-model="userImageUrl" type="text" placeholder="圖片網址">
+    <img v-if="userImageUrl" v-bind:src="userImageUrl" alt="userInputUrl">
+    <p v-else>幫我找張照片吧 ! </p>
   </div>
 
   <!-- <div id="favCat">
@@ -49,6 +59,22 @@
   
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
   <script>
+    var ranking = new Vue({
+      el: '#favCat',
+      data: {
+        userInput1: '', // user第一個input
+        userInput2: '', // user第二個input
+        userInput3: '' // user第三個input
+      }
+    });
+
+    var pic = new Vue({
+      el: '#userImage',
+      data: {
+        userImageUrl: ''       // user輸入的圖片網址
+      }
+    });
+    
     // var app2 = new Vue({
     //   el: '#pic',
     //   data: {
@@ -56,13 +82,6 @@
     //   }
     // });
     
-    var app = new Vue({
-      el: '#favCat',
-      data: {
-        userInput1: '', // user第一個input
-        userInput2: '', // user第二個input
-        userInput3: '' // user第三個input
-      }
       // computed: {
       //   catBreeds: function () {
       //     // 建立一個用戶輸入的陣列
@@ -81,7 +100,7 @@
       //     return uniqueBreeds;
       //   }
       // }
-    });
+    
 
 
     // var app3 = new Vue({
